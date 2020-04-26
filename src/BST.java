@@ -48,7 +48,7 @@ public class BST<T extends Comparable> {
         return root;
     }
     public void remove(T element){
-        remove(root, element);
+        root = remove(root, element);
     }
     private Node<T> remove(Node<T> root, T element){
         if(root == null){
@@ -80,5 +80,17 @@ public class BST<T extends Comparable> {
         System.out.println(root.data + " ");
         preorder(root.left);
         preorder(root.right);
+    }
+    public void inorder() {
+        inorder(root);
+    }
+
+    private void inorder(Node<T> root) {
+        if (root == null) {
+            return;
+        }
+        inorder(root.left);
+        System.out.println(root.data);
+        inorder(root.right);
     }
 }
